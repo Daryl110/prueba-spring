@@ -18,11 +18,13 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> listAll() {
-        return new ResponseEntity<>(this.productService.listAll(), HttpStatus.OK);
+    @CrossOrigin
+    @GetMapping(path = "/{categoryId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> listByCategory(@PathVariable int categoryId) {
+        return new ResponseEntity<>(this.productService.listByCategory(categoryId), HttpStatus.OK);
     }
 
+    @CrossOrigin
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> create(@Valid @RequestBody Product product) {
         return new ResponseEntity<>(this.productService.create(product), HttpStatus.OK);

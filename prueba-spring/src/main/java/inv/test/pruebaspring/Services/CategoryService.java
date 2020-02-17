@@ -17,7 +17,7 @@ public class CategoryService {
 
     public Category create(Category category) {
         Category categoryCreated = this.categoryRepository.save(category);
-        if (category == null){
+        if (categoryCreated == null){
             throw new RuntimeException("the category can't created");
         }
         return categoryCreated;

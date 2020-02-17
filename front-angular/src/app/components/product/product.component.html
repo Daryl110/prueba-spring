@@ -3,6 +3,9 @@
         <mat-card-title>Products</mat-card-title>
     </mat-card-header>
     <mat-card-actions>
+        <button [routerLink]="['/categories']" mat-raised-button color="warn">
+            <mat-icon>keyboard_backspace</mat-icon>
+        </button>
         <button routerLink="create-product" mat-raised-button color="primary">
             <mat-icon>add</mat-icon>
         </button>

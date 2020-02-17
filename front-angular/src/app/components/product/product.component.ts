@@ -1,9 +1,10 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ProductService } from 'src/app/services/product.service';
 import { MoneyService } from 'src/app/services/money.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -17,11 +18,12 @@ export class ProductComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor(private productService: ProductService, private moneyService: MoneyService, private sanitizer: DomSanitizer) { }
+  constructor(private productService: ProductService, private moneyService: MoneyService, private sanitizer: DomSanitizer,
+    private activeRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.displayedColumns = [ 'image1', 'image2', 'image3', 'name', 'category', 'description', 'weight', 'price'];
-    this.productService.listAll().subscribe(
+    this.productService.listByCAtegory(this.activeRoute.snapshot.params.category).subscribe(
       data => {
         let dataArray: any[] = data;
         for (let i = 0; i < dataArray.length; i++) {

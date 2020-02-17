@@ -12,6 +12,7 @@ import { MaterialModule } from './modules/material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProductComponent } from './components/product/product.component';
 import { CreateProductComponent } from './components/product/create-product/create-product.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { CreateProductComponent } from './components/product/create-product/crea
     CategoryComponent,
     CreateCategoryComponent,
     ProductComponent,
-    CreateProductComponent
+    CreateProductComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

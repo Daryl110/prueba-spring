@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -21,8 +22,16 @@ public class ProductService {
     @Qualifier("categoryRepository")
     private CategoryRepository categoryRepository;
 
-    public List<Product> listAll() {
-        return productRepository.findAll();
+    public List<Product> listByCategory(int idCategory) {
+        List<Product> products = this.productRepository.findAll(), productsFilters = new ArrayList<>();
+
+        for (Product product : products){
+            if(product.getCategory().getId() == idCategory){
+                productsFilters.add(product);
+            }
+        }
+
+        return productsFilters;
     }
 
     public Product create(Product product) {

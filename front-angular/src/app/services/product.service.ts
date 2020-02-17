@@ -12,8 +12,8 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
-  public listAll(): Observable<any> {
-    return this.http.get(environment.urlApi + this.rootUri);
+  public listByCAtegory( categoryId: number ): Observable<any> {
+    return this.http.get(environment.urlApi + this.rootUri + '/' + categoryId);
   }
 
   public create( category: any ): Observable<any> {

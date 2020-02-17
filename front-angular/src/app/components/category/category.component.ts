@@ -19,7 +19,7 @@ export class CategoryComponent implements OnInit {
   constructor(private categoryService: CategoryService, private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
-    this.displayedColumns = [ 'image', 'name', 'parent category' ];
+    this.displayedColumns = [ 'image', 'name', 'parent category', 'products' ];
     this.categoryService.listAll().subscribe(
       data => {
         this.dataSource = new MatTableDataSource(data);
