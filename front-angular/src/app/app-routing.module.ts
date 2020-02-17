@@ -12,7 +12,7 @@ const routes: Routes = [
     component: CategoryComponent
   },
   {
-    path: 'categories/create-category',
+    path: 'create-category',
     component: CreateCategoryComponent
   },
   {
@@ -22,6 +22,10 @@ const routes: Routes = [
   {
     path: 'products/create-product',
     component: CreateProductComponent
+  },
+  {
+    path: '',
+    component: CategoryComponent
   }
 ];
 
