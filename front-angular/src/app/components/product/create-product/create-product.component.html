@@ -1,0 +1,49 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Create a Product</mat-card-title>
+    </mat-card-header>
+    <mat-card-actions>
+        <button routerLink=".." mat-raised-button color="warn">
+            <mat-icon>keyboard_backspace</mat-icon>
+        </button>
+    </mat-card-actions>
+    <mat-card-content>
+        <form [formGroup]="formGroup" (submit)="createProduct();">
+            <input style="margin: 2%;" type="file" (change)="uploadFile($event, 1);">
+            <br>
+            <input style="margin: 2%;" type="file" (change)="uploadFile($event, 2);">
+            <br>
+            <input style="margin: 2%;" type="file" (change)="uploadFile($event, 3);">
+            <br>
+            <div>
+                <mat-form-field style="margin-top: 2%;">
+                    <input matInput placeholder="Name" formControlName="name" value="">
+                </mat-form-field>
+                <mat-form-field style="margin-left: 5%;">
+                    <textarea matInput placeholder="Description" formControlName="description" value=""></textarea>
+                </mat-form-field>
+                <mat-form-field style="margin-left: 5%;">
+                    <mat-label>Category</mat-label>
+                    <mat-select formControlName="category">
+                        <mat-option *ngFor="let category of categories" [value]="category">
+                            {{category.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <input matInput placeholder="Weight" value="" formControlName="weight" type="number">
+                </mat-form-field>
+                <mat-form-field style="margin-left: 5%;">
+                    <mat-label>Price</mat-label>
+                    <input matInput type="number" value="" formControlName="price">
+                    <span matPrefix>$&nbsp;</span>
+                </mat-form-field>
+            </div>
+            <button mat-raised-button color="primary" style="margin-left: 5%;" type="submit">
+                <mat-icon>add</mat-icon>
+            </button>
+        </form>
+    </mat-card-content>
+</mat-card>

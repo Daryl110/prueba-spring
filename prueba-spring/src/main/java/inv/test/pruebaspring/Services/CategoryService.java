@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CategoryService {
 
@@ -19,5 +21,9 @@ public class CategoryService {
             throw new RuntimeException("the category can't created");
         }
         return categoryCreated;
+    }
+
+    public List<Category> listAll() {
+        return this.categoryRepository.findAll();
     }
 }
