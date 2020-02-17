@@ -19,4 +19,4 @@ instructions
 * install and create artifact jar or executable <code>mvn -Dmaven.test.skip=true -DskipTests=true clean install</code>
 * run server with jdk or jre <code>java -jar ./target/app.jar</code>
 
-NOTE: Before running the spring application or the microservice check if you have the postgreSQL installed, it is recommended to open the project with an ide or code editor to change credentials
+<b>NOTE:<b> Before running the spring application or the microservice check if you have the postgreSQL installed, it is recommended to open the project with an ide or code editor to change credentials
